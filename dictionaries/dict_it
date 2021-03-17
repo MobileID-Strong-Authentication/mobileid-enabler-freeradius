@@ -1,0 +1,29 @@
+# Dictionary file: Italian
+
+# Message sent to Mobile ID
+#  use #AP_PREFIX# to set the customer prefix
+#  use #TRANSID# to set the unique transaction id
+DTBS="#AP_PREFIX#: Autenticazione con Mobile ID? (#TRANSID#)"
+
+# Errors
+#  use #URL# to set the Portal Helper URL
+ERROR_105="Mobile ID non è stato ancora ordinato per questo numero di telefono. Si prega di visitare il Mobile ID portale del proprio operatore mobile."
+ERROR_208="L'operazione è scaduta. Riprovi di nuovo."
+ERROR_209="Il servizio non ha potuto contattare apparecchiature mobili del utente finale (connessione scadente...). Riprovi di nuovo."
+ERROR_401="La richiesta é stata cancellata dal utilizzatore."
+ERROR_402="Il vostro PIN Mobile ID é bloccato. Consulti #URL# per ripristinare il PIN."
+ERROR_403="Il vostro Mobile ID è sospeso. Consulti #URL# per riattivare Mobile ID."
+ERROR_404="Il vostro numero di telefonia mobile non é abilitato per Mobile ID. Consulti #URL# per attivare Mobile ID."
+ERROR_406="Errore causato dall'apparecchio mobile, probabilmente un altra richiesta di firma è già in corso. Riprovi di nuovo."
+ERROR_422="Il vostro Mobile ID non è più attivo. Visita #URL# per riattivare Mobile ID."
+ERROR_501="Errore durante la conferma. Riprovi di nuovo e se l'errore persiste rivolgersi all'operatore di rete mobile."
+ERROR_503="Errore durante la conferma. Riprovi di nuovo e se l'errore persiste rivolgersi all'operatore di rete mobile."
+
+# Error (Generic)
+ERROR_="Mobile ID attualmente non può essere utilizzato. Riprova più tardi."
+
+# Error (Unique ID)
+ERROR_ID="Errore sul numero di serie del Mobile ID. Contattare il vostro amministratore di sistema."
+
+# Error (MCC)
+ERROR_MCC="Errore sul posizione del Mobile ID."

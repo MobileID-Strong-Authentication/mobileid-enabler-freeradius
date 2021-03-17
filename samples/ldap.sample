@@ -1,0 +1,50 @@
+#
+#  Lightweight Directory Access Protocol (LDAP)
+#
+
+ldap {
+	server = %LDAP_SERVER%
+	identity = %LDAP_USERID%
+	password = %LDAP_PWD%
+	base_dn = %LDAP_BASEDN%
+
+	update {
+		control:Called-Station-Id := '%LDAP_ATTR_MOBILE%'
+		control:X-MSS-Language    := '%LDAP_ATTR_LANGUAGE%'
+		control:X-MSS-MobileID-SN := '%LDAP_ATTR_SNOFDN%'
+	}
+
+	user {
+		base_dn = "${..base_dn}"
+		filter = "(&(objectclass=user)(objectCategory=person)(sAMAccountName=%{User-Name}))"
+		scope = 'sub'
+	}
+	group {
+		base_dn = "${..base_dn}"
+		filter = '(objectClass=posixGroup)'
+		scope = 'sub'
+		membership_attribute = 'memberOf'
+	}
+
+	#  LDAP connection-specific options.
+	options {
+		chase_referrals = yes
+		rebind = yes
+		res_timeout = 5
+		srv_timelimit = 3
+		net_timeout = 1
+		idle = 60
+		probes = 3
+		interval = 3
+	}
+	pool {
+		start = ${thread[pool].start_servers}
+		min = ${thread[pool].min_spare_servers}
+		max = ${thread[pool].max_servers}
+		spare = ${thread[pool].max_spare_servers}
+		uses = 0
+		retry_delay = 30
+		lifetime = 0
+		idle_timeout = 60
+	}
+}

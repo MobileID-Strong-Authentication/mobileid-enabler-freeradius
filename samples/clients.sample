@@ -1,0 +1,8 @@
+#
+#  Define RADIUS clients (usually a NAS, Access Point, etc.).
+#
+
+# Allow clients that know the secret to use the service
+client 0.0.0.0/0 {
+	secret = "testing123"
+}

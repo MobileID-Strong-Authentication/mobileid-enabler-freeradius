@@ -1,0 +1,10 @@
+#  rlm_exec
+
+exec mobileid {
+    program = '/opt/freeradius/exec-mobileid.sh'
+    wait = yes
+    input_pairs = request
+    output_pairs = reply
+    shell_escape = yes
+    timeout = 120
+}
