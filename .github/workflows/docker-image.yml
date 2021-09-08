@@ -24,7 +24,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
     - name: Build the Docker image
-      run: docker build . --file docker/Dockerfile --tag latest:$(date +%s)
+      run: docker build . --file docker --tag latest:$(date +%s)
         
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/swisscomtds/freeradius-mobileid
