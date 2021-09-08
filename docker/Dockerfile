@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Eva Ramon <eva.ramon@swisscom.com>
+MAINTAINER Philipp Haupt <philipp.haupt@swisscom.com>
 
 # Environment settings and defaults if not passed
 ENV AP_ID="mid://dev.swisscom.ch"
@@ -28,7 +28,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install Mobile ID module
 WORKDIR /opt
-RUN git clone https://github.com/SCS-CBU-CED-IAM/freeradius-mobileid.git freeradius \
+RUN git clone https://github.com/MobileID-Strong-Authentication/mobileid-enabler-freeradius.git freeradius \
   && chown radius:radius -R /opt/freeradius/
 
 # Add files
