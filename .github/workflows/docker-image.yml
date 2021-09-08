@@ -33,7 +33,7 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        sudo docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   
     - name: Build and push
       id: docker_build
@@ -42,7 +42,7 @@ jobs:
         context: ./docker
         file: ./docker/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USER }}/swisscomtds/freeradius-mobileid:latest
+        tags: ${{ secrets.DOCKER_USER }}/freeradius-mobileid:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
