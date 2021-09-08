@@ -42,7 +42,7 @@ jobs:
         context: ./docker
         file: ./docker/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USER }}/freeradius-mobileid:latest
+        tags: swisscomtds/freeradius-mobileid:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
