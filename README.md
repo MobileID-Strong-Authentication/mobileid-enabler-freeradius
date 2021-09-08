@@ -13,7 +13,7 @@ Refer to the technical documentations at [Mobile ID](http://swisscom.com/mid "Mo
 Checkout the project directly from git under a specific folder:
 ```
   cd /opt
-  git clone https://github.com/SCS-CBU-CED-IAM/freeradius-mobileid.git freeradius
+  git clone https://github.com/MobileID-Strong-Authentication/mobileid-enabler-freeradius.git freeradius
 ```
 
 ## Configuration
