@@ -3,9 +3,9 @@ freeradius-mobileid
 
 Mobile ID module for FreeRADIUS.
 
-Refer to the technical documentations at [Mobile ID](http://swisscom.com/mid "Mobile ID") for complementary informations. Especially the:
-* Mobile ID RADIUS integration guide
-* Mobile ID Client reference guide
+Refer to the technical documentations for complementary informations:
+* [Mobile ID RADIUS integration guide](docs)
+* [Mobile ID Client reference guide](https://github.com/MobileID-Strong-Authentication/mobileid-api/tree/main/doc)
 
 
 ## Install / Update
