@@ -123,11 +123,11 @@ sudo radiusd –X -f
 ```
 
 
-An easy way to test your RADIUS server is by using the FreeRADIUS provided radclient tool: 
+An easy way to test your RADIUS server is by using the FreeRADIUS provided radclient tool (modify values such as user-name or radius server ip:port accordingly)
 ````
-echo "User-Name=+4179xxxxxxx,User-Password=''" | radclient -x -t 120 localhost auth testing123
-echo "User-Name=user1,User-Password='secret'" | radclient -x -t 120 localhost auth testing123
-echo "User-Name=user2,User-Password='secret'" | radclient -x -t 120 localhost auth testing123
+echo "User-Name=+4179xxxxxxx,User-Password=''" | radclient -x -t 120 localhost:2000 auth testing123
+echo "User-Name=user1,User-Password='secret'" | radclient -x -t 120 localhost:2000 auth testing123
+echo "User-Name=user2,User-Password='secret'" | radclient -x -t 120 localhost:2000 auth testing123
 ````
 
 ## Advanced configuration
