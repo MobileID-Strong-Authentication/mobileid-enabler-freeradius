@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Define base directories
 cfg=/etc/raddb
