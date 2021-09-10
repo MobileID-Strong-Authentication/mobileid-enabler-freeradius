@@ -56,8 +56,7 @@ if [ -e $cfg/mods-enabled/ldap ]; then
   sed -i -e "s/%LDAP_ATTR_LANGUAGE%/$LDAP_ATTR_LANGUAGE/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_SNOFDN%/$LDAP_ATTR_SNOFDN/g" $cfg/mods-available/ldap
 
- # Enable the module
-  ln -s $cfg/mods-available/ldap $cfg/mods-enabled/ldap
+ # ln -s $cfg/mods-available/ldap $cfg/mods-enabled/ldap
 fi
 
 ## module mobileid
