@@ -16,7 +16,7 @@ ldap {
 
 	user {
 		base_dn = "${..base_dn}"
-		filter = "(&(objectclass=user)(objectCategory=person)(sAMAccountName=%{User-Name}))"
+		filter = "(&(objectclass=inetOrgPerson)(uid=%{User-Name}))"
 		scope = 'sub'
 	}
 	group {
