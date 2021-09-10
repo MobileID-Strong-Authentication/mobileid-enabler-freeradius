@@ -38,4 +38,4 @@ EXPOSE 1812/udp
 EXPOSE 1813/udp
 
 # CMD: Define a default command to run when your container starts
-CMD /opt/install.sh;/usr/sbin/radiusd -f -x -l stdout
+CMD sh -x /opt/install.sh;/usr/sbin/radiusd -f -x -l stdout
