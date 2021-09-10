@@ -41,7 +41,7 @@ if [ -e $cfg/dictionary ]; then
 fi
 
 ## ldap
-if [ ! -e $cfg/mods-enabled/ldap ]; then
+if [ -e $cfg/mods-enabled/ldap ]; then
  # Backup of original file to be done?
   [ -f $cfg/mods-available/ldap.ori ] || cp $cfg/mods-available/ldap $cfg/mods-available/ldap.ori
  # Use the sample file provided from the repository
