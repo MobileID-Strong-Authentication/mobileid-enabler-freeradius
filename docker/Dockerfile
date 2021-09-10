@@ -7,9 +7,9 @@ ENV AP_PREFIX="Test"
 ENV DEFAULT_LANGUAGE=en
 ENV UNIQUEID_CHECK=ifset
 ENV ALLOWED_MCC=
-ENV CLIENT_PWD=
+ENV CLIENT_PWD=testing123
 ENV LDAP_SERVER="ldap://yourserver.com"
-ENV LDAP_USERID="SystemLDAP,CN=Users,DC=org,DC=acme,DC=com"
+ENV LDAP_USERID="SystemLDAP,CN=Users,DC=org,DC=acme,DC=ch"
 ENV LDAP_PWD="ThisMustStaySecret"
 ENV LDAP_BASEDN="CN=Users,DC=org,DC=acme,DC=ch"
 ENV LDAP_UPDATE=
@@ -17,13 +17,15 @@ ENV LDAP_ATTR_MOBILE=mobile
 ENV LDAP_ATTR_LANGUAGE=preferredLanguage
 ENV LDAP_ATTR_SNOFDN=msNPCallingStationID
 # Set timezone
-ENV TZ=Europe/Brussels
+ENV TZ=Europe/Zurich
 
 WORKDIR /opt
 ADD install.sh /opt/install.sh
 
 # Install FreeRADIUS & set timezone & install Mobile ID Module (all in one RUN command to reduce number of layers)
-RUN apk update && apk upgrade \
+# RUN: Execute commands inside of your Docker image
+RUN export AP_ID AP_PREFIX DEFAULT_LANGUAGE UNIQUEID_CHECK ALLOWED_MCC CLIENT_PWD LDAP_SERVER LDAP_USERID LDAP_PWD LDAP_BASEDN LDAP_UPDATE LDAP_ATTR_MOBILE LDAP_ATTR_LANGUAGE LDAP_ATTR_SNOFDN TZ \
+  && apk update && apk upgrade \
   && apk add --update --no-cache curl openssl ca-certificates freeradius freeradius-ldap freeradius-radclient bash git openldap-clients libxml2-utils tzdata \
   && rm -rf /var/cache/apk/* \
   && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
@@ -35,5 +37,5 @@ RUN apk update && apk upgrade \
 EXPOSE 1812/udp
 EXPOSE 1813/udp
 
-# Run
+# CMD: Define a default command to run when your container starts
 CMD /opt/install.sh;/usr/sbin/radiusd -f -x -l stdout
