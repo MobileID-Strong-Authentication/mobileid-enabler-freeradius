@@ -3,6 +3,8 @@ MAINTAINER Philipp Haupt <philipp.haupt@swisscom.com>
 
 # Environment settings and defaults if not passed
 ENV AP_ID="mid://dev.swisscom.ch"
+ENV AP_KEY=
+ENV AP_CRT=
 ENV AP_PREFIX="Test"
 ENV DEFAULT_LANGUAGE=en
 ENV UNIQUEID_CHECK=ifset
