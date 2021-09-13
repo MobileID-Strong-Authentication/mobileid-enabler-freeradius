@@ -4,6 +4,16 @@
 cfg=/etc/raddb
 opt=/opt/freeradius
 
+# Mobile ID AP Key provided via env/variable
+if [ -z "$AP_KEY" ]; then
+  echo $AP_KEY > /opt/freeradius/certs/mycert.key
+fi
+
+# Mobile ID AP Certificate provided via env/variable
+if [ -z "$AP_CRT" ]; then
+  echo $AP_CRT > /opt/freeradius/certs/mycert.crt
+fi
+
 ## clients.conf
 if [ -e $cfg/clients.conf ]; then
  # Backup of original file to be done?
