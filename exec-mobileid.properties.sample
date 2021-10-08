@@ -3,8 +3,8 @@ AP_ID=mid://dev.swisscom.ch                 # AP_ID used to identify to Mobile I
 AP_PWD=disabled                             # AP Password is ignored. You can set any value here.
 
 # Client Authentication (TLS/SSL)
-CERT_FILE=/opt/freeradius/certs/mycert.key             # Client certificate for the TLS/SSL authentication
-CERT_KEY=/opt/freeradius/certs/mycert.crt              # Client private key file that is related to the client certificate
+CERT_FILE=/opt/freeradius/certs/mycert.crt             # Client certificate for the TLS/SSL authentication
+CERT_KEY=/opt/freeradius/certs/mycert.key              # Client private key file that is related to the client certificate
 
 # Truststore / Root CA files
 CERT_CA_MID=$PWD/certs/mobileid-ca-signature.crt  # Root CA and intermediate CA certificates for the Mobile ID Signature validation
