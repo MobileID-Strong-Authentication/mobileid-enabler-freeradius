@@ -8,7 +8,7 @@ opt=/opt/freeradius
 [[ ! -z "$AP_KEY" ]] && echo "$AP_KEY" > /opt/freeradius/certs/mycert.key
 
 # Mobile ID AP Certificate provided via env/variable
-[[ ! -z "$AP_CRT" ]] && echo "$AP_KEY" > /opt/freeradius/certs/mycert.crt
+[[ ! -z "$AP_CRT" ]] && echo "$AP_CRT" > /opt/freeradius/certs/mycert.crt
 
 ## clients.conf
 if [ -e $cfg/clients.conf ]; then
