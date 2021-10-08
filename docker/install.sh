@@ -5,14 +5,10 @@ cfg=/etc/raddb
 opt=/opt/freeradius
 
 # Mobile ID AP Key provided via env/variable
-if [ -z "$AP_KEY" ]; then
-  echo $AP_KEY > /opt/freeradius/certs/mycert.key
-fi
+[[ ! -z "$AP_KEY" ]] && echo $AP_KEY > /opt/freeradius/certs/mycert.key
 
 # Mobile ID AP Certificate provided via env/variable
-if [ -z "$AP_CRT" ]; then
-  echo $AP_CRT > /opt/freeradius/certs/mycert.crt
-fi
+[[ ! -z "$AP_CRT" ]] && echo $AP_KEY > /opt/freeradius/certs/mycert.crt
 
 ## clients.conf
 if [ -e $cfg/clients.conf ]; then
