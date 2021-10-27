@@ -25,6 +25,13 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+      
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: ./docker
+        file: ./docker/Dockerfile
 
     - name: Build, tag, and push the image to Amazon ECR
       id: build-image
