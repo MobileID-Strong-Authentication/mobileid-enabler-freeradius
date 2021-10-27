@@ -24,7 +24,7 @@ AP_PREFIX="myserver.com"                    # AP prefix that will be added to th
 # --silent
 #       Don't show progress meter or error messages.  Makes Curl mute. It will still output the data you ask for
 #       
-CURL_OPTIONS="--insecure --silent --proxy server-proxy.corproot.net:8080"
+CURL_OPTIONS="--insecure --silent"
 
 # Default language if not set
 DEFAULT_LANGUAGE=en
