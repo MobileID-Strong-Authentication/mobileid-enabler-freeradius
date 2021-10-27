@@ -31,7 +31,7 @@ RUN export AP_ID AP_KEY AP_CRT AP_PREFIX DEFAULT_LANGUAGE UNIQUEID_CHECK ALLOWED
   && apk add --update --no-cache curl openssl ca-certificates freeradius freeradius-ldap freeradius-radclient bash git openldap-clients libxml2-utils tzdata \
   && rm -rf /var/cache/apk/* \
   && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-  && git clone https://github.com/MobileID-Strong-Authentication/mobileid-enabler-freeradius.git freeradius \
+  && git clone https://github.com/phaupt/mobileid-enabler-freeradius.git freeradius \
   && chown radius:radius -R /opt/freeradius/ \
   && chmod +x /opt/install.sh
 
