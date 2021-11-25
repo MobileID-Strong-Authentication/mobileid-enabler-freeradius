@@ -24,7 +24,7 @@ To start:
 optional environment settings:
 ```
    -e LDAP_UPDATE=enabled \
-   -e LDAP_USER_FILTER="(&(objectclass=inetOrgPerson)(uid=%{User-Name}))" \
+   -e LDAP_USER_FILTER=(&(objectclass=inetOrgPerson)(uid=%{User-Name})) \
    -e LDAP_ATTR_MOBILE=mobile \
    -e LDAP_ATTR_LANGUAGE=preferredLanguage \
    -e LDAP_ATTR_SNOFDN=msNPCallingStationID \
