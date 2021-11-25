@@ -52,7 +52,7 @@ if [ -e $cfg/mods-enabled/ldap ]; then
   sed -i -e "s/%LDAP_USERID%/\"$LDAP_USERID\"/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_PWD%/\"$LDAP_PWD\"/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_BASEDN%/\"$LDAP_BASEDN\"/g" $cfg/mods-available/ldap
-  sed -i -e "s/%LDAP_USER_FILTER%/\"$LDAP_USER_FILTER\"/g" $cfg/mods-available/ldap
+  sed -i -e "s,%LDAP_USER_FILTER%,\"$LDAP_USER_FILTER\",g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_MOBILE%/$LDAP_ATTR_MOBILE/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_LANGUAGE%/$LDAP_ATTR_LANGUAGE/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_SNOFDN%/$LDAP_ATTR_SNOFDN/g" $cfg/mods-available/ldap
