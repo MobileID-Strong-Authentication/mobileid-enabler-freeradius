@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # exec-mobileid.sh
 # Script to invoke Mobile ID service over curl for use in FreeRADIUS.
 #
@@ -81,8 +81,7 @@ RANDOM=$$
 
 # Check the dependencies
 for cmd in curl openssl base64 sed date xmllint awk tr head logger; do
-  hash $cmd &> /dev/null
-  if [ $? -eq 1 ]; then error "Dependency error: '$cmd' not found" ; fi
+  if [ -z $(which $cmd) ]; then error "Dependency error: '$cmd' not found" ; fi
 done
 
 # Remove quote and all spaces for related mobile number
