@@ -16,7 +16,7 @@ ldap {
 
 	user {
 		base_dn = "${..base_dn}"
-		filter = %LDAP_USER_FILTER%
+		filter = '%LDAP_USER_FILTER%'
 		scope = 'sub'
 	}
 	group {
