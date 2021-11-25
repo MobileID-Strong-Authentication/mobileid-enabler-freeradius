@@ -12,6 +12,7 @@ ENV LDAP_SERVER="ldap://yourserver.com"
 ENV LDAP_USERID="SystemLDAP,CN=Users,DC=org,DC=acme,DC=ch"
 ENV LDAP_PWD="ThisMustStaySecret"
 ENV LDAP_BASEDN="CN=Users,DC=org,DC=acme,DC=ch"
+ENV LDAP_USER_FILTER="(&(objectclass=inetOrgPerson)(uid=%{User-Name}))"
 ENV LDAP_UPDATE=
 ENV LDAP_ATTR_MOBILE=mobile
 ENV LDAP_ATTR_LANGUAGE=preferredLanguage
@@ -24,7 +25,7 @@ ADD install.sh /opt/install.sh
 
 # Install FreeRADIUS & set timezone & install Mobile ID Module (all in one RUN command to reduce number of layers)
 # RUN: Execute commands inside of your Docker image
-RUN export AP_ID AP_PREFIX DEFAULT_LANGUAGE UNIQUEID_CHECK ALLOWED_MCC CLIENT_PWD LDAP_SERVER LDAP_USERID LDAP_PWD LDAP_BASEDN LDAP_UPDATE LDAP_ATTR_MOBILE LDAP_ATTR_LANGUAGE LDAP_ATTR_SNOFDN TZ \
+RUN export AP_ID AP_PREFIX DEFAULT_LANGUAGE UNIQUEID_CHECK ALLOWED_MCC CLIENT_PWD LDAP_SERVER LDAP_USERID LDAP_PWD LDAP_BASEDN LDAP_USER_FILTER LDAP_UPDATE LDAP_ATTR_MOBILE LDAP_ATTR_LANGUAGE LDAP_ATTR_SNOFDN TZ \
   && apk update && apk upgrade \
   && apk add --update --no-cache curl openssl ca-certificates freeradius freeradius-ldap freeradius-radclient bash git openldap-clients libxml2-utils tzdata \
   && rm -rf /var/cache/apk/* \
