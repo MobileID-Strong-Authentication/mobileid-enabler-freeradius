@@ -58,6 +58,9 @@ if [ -e $cfg/mods-enabled/ldap ]; then
   sed -i -e "s/%LDAP_USERID%/\"$LDAP_USERID\"/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_PWD%/\"$LDAP_PWD\"/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_BASEDN%/\"$LDAP_BASEDN\"/g" $cfg/mods-available/ldap
+  # ensure characters such as & are escaped before sed is used:
+  ESCAPED_LDAP_USER_FILTER=$(printf '%s\n' "$LDAP_USER_FILTER" | sed -e 's/[\/&]/\\&/g')
+  sed -i -e "s/%LDAP_USER_FILTER%/\"$ESCAPED_LDAP_USER_FILTER\"/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_MOBILE%/$LDAP_ATTR_MOBILE/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_LANGUAGE%/$LDAP_ATTR_LANGUAGE/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_SNOFDN%/$LDAP_ATTR_SNOFDN/g" $cfg/mods-available/ldap

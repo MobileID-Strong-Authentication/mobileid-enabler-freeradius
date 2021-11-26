@@ -1,7 +1,9 @@
 freeradius-mobileid
 ===================
 
-Mobile ID module for FreeRADIUS.
+Mobile ID RADIUS support for FreeRADIUS. 
+
+You can easily integrate Mobile ID two-factor-authentication into a RADIUS server, using the free open source RADIUS server FreeRADIUS. FreeRADIUS is a modular, high-performance free RADIUS suite. It is developed and distributed under the GNU General Public License, version 2, and is free for download and use. FreeRADIUS is the most popular open source RADIUS server and the most widely deployed RADIUS server in the world. FreeRADIUS is used by educational institutions, internet service providers and for enterprise networks.
 
 Refer to the technical documentations for complementary informations:
 * [Mobile ID RADIUS integration guide](docs)

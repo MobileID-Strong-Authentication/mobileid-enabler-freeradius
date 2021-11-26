@@ -16,7 +16,7 @@ ldap {
 
 	user {
 		base_dn = "${..base_dn}"
-		filter = "(&(objectclass=inetOrgPerson)(uid=%{User-Name}))"
+		filter = %LDAP_USER_FILTER%
 		scope = 'sub'
 	}
 	group {

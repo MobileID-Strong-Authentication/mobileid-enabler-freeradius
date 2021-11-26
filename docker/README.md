@@ -24,6 +24,7 @@ To start:
 optional environment settings:
 ```
    -e LDAP_UPDATE=enabled \
+   -e LDAP_USER_FILTER=(&(objectclass=inetOrgPerson)(uid=%{User-Name})) \
    -e LDAP_ATTR_MOBILE=mobile \
    -e LDAP_ATTR_LANGUAGE=preferredLanguage \
    -e LDAP_ATTR_SNOFDN=msNPCallingStationID \
@@ -41,6 +42,7 @@ Infos about the `-e` settings:
 * LDAP_USERID: UserID used to bind in order to search/update user objects
 * LDAP_PWD: Password for the related UserID
 * LDAP_BASEDN: Base DN where to search for user objects
+* LDAP_USER_FILTER: User filter to search for user objects
 * LDAP_UPDATE: Update user object with proper Mobile ID SerialNumber of the DN
 * LDAP_ATTR_MOBILE: Attribute with the mobile number (default: mobile)
 * LDAP_ATTR_LANGUAGE: Attribute with the preferred user language (default: preferredLanguage)
