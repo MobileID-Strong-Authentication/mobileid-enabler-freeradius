@@ -10,13 +10,13 @@ To start:
  $ docker run --name freeradius-mobileid -d \
    -e AP_ID=mid://dev.swisscom.ch \
    -e AP_PREFIX="Test" \
+   -e AP_KEY=<base64 encoded key file> \ 
+   -e AP_CRT=<base64 encoded crt file> \
    -e CLIENT_PWD=ThisMustStaySecret \
    -e LDAP_SERVER=ldap://yourserver.com \
    -e LDAP_USERID=CN=SystemLDAP,CN=Users,DC=org,DC=acme,DC=com \
    -e LDAP_PWD=ThisMustStaySecret \
    -e LDAP_BASEDN=CN=Users,DC=org,DC=acme,DC=ch \
-   -e AP_KEY=<base64 encoded key file> \ 
-   -e AP_CRT=<base64 encoded crt file> \
    -p 1812:1812/udp \
    -p 1813:1813/udp \
    swisscomtds/freeradius-mobileid
@@ -37,6 +37,8 @@ Infos about the `-e` settings:
 
 * AP_ID: AP customer/client identification towards Mobile ID service
 * AP_PREFIX: AP prefix that will be added to the message sent to the mobile
+* AP_KEY: Base64 encoded Key file of your Mobile ID Account
+* AP_CRT: Base64 encoded Crt file of your Mobile ID Account
 * CLIENT_PWD: Radius client password / shared secret
 * LDAP_SERVER: Active Directory / LDAP server address in the form ldap://ipOrDNS
 * LDAP_USERID: UserID used to bind in order to search/update user objects
@@ -52,6 +54,12 @@ Infos about the `-e` settings:
 * ALLOWED_MCC: List of comma separated allowed Mobile Country Codes
 
 
+Use key and certificate file mount instead of environment settings:
+```
+   -v "/home/user/apcert.crt":/opt/freeradius/certs/mycert.crt \
+   -v "/home/user/apcert.key":/opt/freeradius/certs/mycert.key \
+```
+
 ## Testing
 
 ```
@@ -62,4 +70,3 @@ Infos about the `-e` settings:
 ```
  $ docker logs freeradius-mobileid
 ```
-
