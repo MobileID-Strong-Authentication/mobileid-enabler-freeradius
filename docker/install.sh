@@ -4,6 +4,12 @@
 cfg=/etc/raddb
 opt=/opt/freeradius
 
+# Mobile ID AP Key provided via env/variable
+[[ ! -z "$AP_KEY" ]] && echo "$AP_KEY" | base64 -d > /opt/freeradius/certs/mycert.key
+
+# Mobile ID AP Certificate provided via env/variable
+[[ ! -z "$AP_CRT" ]] && echo "$AP_CRT" | base64 -d > /opt/freeradius/certs/mycert.crt
+
 ## clients.conf
 if [ -e $cfg/clients.conf ]; then
  # Backup of original file to be done?
@@ -59,8 +65,7 @@ if [ -e $cfg/mods-enabled/ldap ]; then
   sed -i -e "s/%LDAP_ATTR_LANGUAGE%/$LDAP_ATTR_LANGUAGE/g" $cfg/mods-available/ldap
   sed -i -e "s/%LDAP_ATTR_SNOFDN%/$LDAP_ATTR_SNOFDN/g" $cfg/mods-available/ldap
 
- # Enable the module
-  ln -s $cfg/mods-available/ldap $cfg/mods-enabled/ldap
+ # ln -s $cfg/mods-available/ldap $cfg/mods-enabled/ldap
 fi
 
 ## module mobileid

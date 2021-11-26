@@ -15,8 +15,8 @@ To start:
    -e LDAP_USERID=CN=SystemLDAP,CN=Users,DC=org,DC=acme,DC=com \
    -e LDAP_PWD=ThisMustStaySecret \
    -e LDAP_BASEDN=CN=Users,DC=org,DC=acme,DC=ch \
-   -v "/home/user/apcert.crt":/opt/freeradius/certs/mycert.crt \
-   -v "/home/user/apcert.key":/opt/freeradius/certs/mycert.key \
+   -e AP_KEY=<base64 encoded key file> \ 
+   -e AP_CRT=<base64 encoded crt file> \
    -p 1812:1812/udp \
    -p 1813:1813/udp \
    swisscomtds/freeradius-mobileid
