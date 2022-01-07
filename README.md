@@ -1,3 +1,12 @@
+
+=== Archived ===
+===================
+This solution has been deprecated and this repository is no longer maintained.
+
+Please use our new dockerized image of the MobileID Radius Interface Gateway.
+
+Find out more on https://mid-radius-rig.mobileid.ch
+
 freeradius-mobileid
 ===================
 
